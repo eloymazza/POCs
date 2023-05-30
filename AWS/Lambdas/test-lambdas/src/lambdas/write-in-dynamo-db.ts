@@ -1,8 +1,4 @@
-import {
-  DynamoDBClient,
-  BatchExecuteStatementCommand,
-  PutItemCommand,
-} from '@aws-sdk/client-dynamodb';
+import { DynamoDBClient, PutItemCommand } from '@aws-sdk/client-dynamodb';
 
 const REGION = 'us-east-1';
 const TABLE_NAME = 'items';
@@ -38,7 +34,7 @@ export const handler = async (event: Event) => {
   };
 
   const command = new PutItemCommand({
-    TableName: 'items',
+    TableName: TABLE_NAME,
     Item: payload,
   });
 
