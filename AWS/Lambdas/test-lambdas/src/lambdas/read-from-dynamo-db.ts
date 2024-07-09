@@ -2,12 +2,12 @@ import {
   DynamoDBClient,
   GetItemCommand,
   ScanCommand,
-} from '@aws-sdk/client-dynamodb';
+} from "@aws-sdk/client-dynamodb";
 
-const REGION = 'us-east-1';
-const TABLE_NAME = 'items';
+const REGION = "us-east-1";
+const TABLE_NAME = "items";
 
-const failResponse = (code = 400, message = 'Incorrect payload format') => {
+const failResponse = (code = 400, message = "Incorrect payload format") => {
   return {
     status: code,
     response: {
@@ -28,9 +28,8 @@ export const handler = async () => {
 
   try {
     items = await client.send(command);
-    console.log(items);
   } catch (error) {
-    console.error('Error writing to DynamoDB', error);
+    console.error("Error writing to DynamoDB", error);
     return failResponse(500, JSON.stringify(error));
   }
 };

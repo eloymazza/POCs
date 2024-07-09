@@ -1,11 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 const Main = () => {
   useEffect(() => {
     const getFromUrl = async () => {
-      const response = await fetch('https://randomuser.me/api/');
+      const response = await fetch("https://randomuser.me/api/");
       const data = await response.json();
-      console.log(data);
     };
     getFromUrl();
   }, []);

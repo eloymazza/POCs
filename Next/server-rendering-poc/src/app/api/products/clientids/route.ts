@@ -1,5 +1,4 @@
 export async function GET(req: Request, res: Response) {
-  console.log("CLIENTIDS!!!!!");
   try {
     const response = await fetch(`http://localhost:3001/products/clientids`, {
       headers: {
